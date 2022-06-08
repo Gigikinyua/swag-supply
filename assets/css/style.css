@@ -168,31 +168,31 @@ hr {
 }
 
 .section-space {
-    padding-bottom: 110px;
-    padding-top: 110px;
+    padding-bottom: 50px;
+    padding-top: 50px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .section-space {
-        padding-top: 90px;
-        padding-bottom: 90px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
     .section-space {
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 }
 
 .section-top-space {
-    padding-top: 110px;
+    padding-top: 60px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .section-top-space {
-        padding-top: 90px;
+        padding-top: 70px;
     }
 }
 
