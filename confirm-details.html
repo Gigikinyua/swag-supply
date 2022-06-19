@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="assets/fancybox/fancybox.min.css">
     <link rel="stylesheet" href="assets/nice-select/css/nice-select.css">
 
+    <!-- Toastr -->
+    <link rel="stylesheet" href="assets/toastr/toastr.min.css">
+
     <!-- Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -99,7 +102,7 @@
 
     <main class="main-content">
         <!--== Start Product Details Area Wrapper ==-->
-        <section class="product-detail-area section-space">
+        <section class="section-space shop-checkout-area">
             <div class="container">
                 <div class="product-details-content mb-5">
                     <h3 class="product-details-title">Confirm Order details</h3>
@@ -117,7 +120,7 @@
                                 <div class="col-12">
                                     <div class="billing-select mb-5">
                                         <div class="select-style">
-                                            <select class="select-active" >
+                                            <select class="select-active" id="countySelect">
                                                 <option disabled>Select county</option>
                                                 <option>Nairobi</option>
                                                 <option>Kisumu</option>
@@ -130,34 +133,34 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="billing-info mb-4">
-                                        <input type="text" placeholder="Full Address">
+                                        <input type="text" placeholder="Full Address" id="inputFullAddress">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="billing-info mb-4">
-                                        <input type="text" placeholder="Full Names">
+                                        <input type="text" placeholder="Full Names" id="inputFullNames">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="billing-info mb-4">
-                                        <input type="text" placeholder="Phone number">
+                                        <input type="text" placeholder="Phone number" id="inputPhoneNumber">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="billing-info mb-4">
-                                        <input type="text" placeholder="Email Address">
+                                        <input type="text" placeholder="Email Address" id="inputEmailAddress">
                                     </div>
                                 </div>
                             </div>
                             <div class="additional-info-wrap">
                                 <label>Order notes (optional)</label>
                                 <textarea placeholder="Notes about your order, e.g. special notes for delivery. "
-                                          name="message"></textarea>
+                                          name="message" id="inputOrderNotes"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        <div class="your-order-area mt-10 mt-lg-0">
+                        <div class="your-order-area mt-5 mt-lg-0">
                             <h3>Your order</h3>
                             <div class="your-order-wrap">
                                 <div class="your-order-info-wrap">
@@ -166,26 +169,18 @@
                                     </div>
                                     <div class="your-order-product">
                                         <ul>
-                                            <li>Top Luxury European and American Watch × 4 <span>Ksh. 6600.00</span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="your-order-subtotal">
-                                        <h3>Subtotal <span>Ksh. 6600.00</span></h3>
-                                    </div>
-                                    <div class="your-order-shipping">
-                                        <span>Shipping</span>
-                                        <ul>
-                                            <li><input type="radio" name="shipping" value="info"><label>Free shipping</label></li>
-                                            <li><input type="radio" name="shipping" value="info" checked="checked"><label>Local pickup: <span>Ksh 1000.00</span></label></li>
+                                            <li id="txtOrderDetails">Top Luxury European and American Watch × 4 <span>Ksh. 6600.00</span>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="your-order-total">
-                                        <h3>Total <span>Ksh. 7600.00</span></h3>
+                                        <h3>Total <span id="txtTotal">Ksh. 7600.00</span></h3>
                                     </div>
                                 </div>
                                 <div class="payment-method">
                                     <div class="pay-top sin-payment">
-                                        <input id="payment-method-3" class="input-radio" type="radio" value="cheque" checked="checked" name="payment_method">
+                                        <input id="payment-method-3" class="input-radio" type="radio" value="cheque"
+                                               checked="checked" name="payment_method">
                                         <label for="payment-method-3">Cash on delivery </label>
                                         <div class="payment-box payment_method_bacs">
                                             <p>Pay with cash upon delivery. </p>
@@ -195,14 +190,15 @@
                                 <div class="payment-condition">
                                     <p>
                                         Tips: Support cash on delivery+ Free shipping+ Seven days after-sales service.
-                                        If you have any questions, please send email to swagsupplykenya@gmail.com. Please
+                                        If you have any questions, please send email to swagsupplykenya@gmail.com.
+                                        Please
                                         remember to attach your name and order number in the message. We will reply
                                         you as soon as possible! Wish you a happy shopping!
                                     </p>
                                 </div>
                             </div>
                             <div class="place-order">
-                                <a href="#">Place Order</a>
+                                <a href="#" onclick="placeOrder()">Place Order</a>
                             </div>
                         </div>
                     </div>
@@ -229,84 +225,6 @@
 
     <!--== Scroll Top Button ==-->
     <div class="scroll-to-top"><span class="fa fa-angle-double-up"></span></div>
-
-    <!--== Start Product Quick Wishlist Modal ==-->
-    <aside class="product-action-modal modal fade" id="action-WishlistModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="product-action-view-content">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <div class="modal-action-messages">
-                            <i class="fa fa-check-square-o"></i> Added to wishlist successfully!
-                        </div>
-                        <div class="modal-action-product">
-                            <div class="thumb">
-                                <img src="assets/images/shop/modal1.jpg" alt="Organic Food Juice" width="466"
-                                     height="320">
-                            </div>
-                            <h4 class="product-name"><a href="single-product.html">CRAS NEQUE METUS</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
-    <!--== End Product Quick Wishlist Modal ==-->
-
-    <!--== Start Product Quick Add Cart Modal ==-->
-    <aside class="product-action-modal modal fade" id="action-CartAddModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="product-action-view-content">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <div class="modal-action-messages">
-                            <i class="fa fa-check-square-o"></i> Added to cart successfully!
-                        </div>
-                        <div class="modal-action-product">
-                            <div class="thumb">
-                                <img src="assets/images/shop/modal1.jpg" alt="Organic Food Juice" width="466"
-                                     height="320">
-                            </div>
-                            <h4 class="product-name"><a href="single-product.html">CRAS NEQUE METUS</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
-    <!--== End Product Quick Add Cart Modal ==-->
-
-    <!--== Start Product Quick Add Cart Modal ==-->
-    <aside class="product-action-modal modal fade" id="action-CompareModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="product-action-view-content">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <div class="modal-action-messages">
-                            <i class="fa fa-check-square-o"></i> Added to compare successfully!
-                        </div>
-                        <div class="modal-action-product">
-                            <div class="thumb">
-                                <img src="assets/images/shop/modal1.jpg" alt="Organic Food Juice" width="466"
-                                     height="320">
-                            </div>
-                            <h4 class="product-name"><a href="single-product.html">CRAS NEQUE METUS</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
-    <!--== End Product Quick Add Cart Modal ==-->
 
     <!--== Start Sidebar Cart Menu ==-->
     <aside class="sidebar-cart-modal offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1"
@@ -484,8 +402,12 @@
 <script src="assets/fancybox/fancybox.min.js"></script>
 <script src="assets/nice-select/js/jquery.nice-select.min.js"></script>
 
+<!-- Toastr -->
+<script src="assets/toastr/toastr.min.js"></script>
+
 <!-- Custom Main JS -->
 <script src="assets/js/main.js"></script>
+<script src="assets/js/confirm_details.js"></script>
 
 </body>
 

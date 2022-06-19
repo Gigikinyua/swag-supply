@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteRule ^(.+)\.php$ /$1 [R,L]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*?)/?$ $1.php [NC,END]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . Routes.php [END]
+
+# block files which needs to be hidden, specify .example extension of the file
+<Files ~ "\.(env|config.js|md|gitignore|gitattributes|lock|example)$">
+    Order allow,deny
+    Deny from all
+</Files>

@@ -103,28 +103,32 @@
                 <h3 class="product-details-title">Top Luxury European and American Watch</h3>
                 </div>
                 <div class="row my-5">
-                    <div class="col-2 text-center">
-                        <img src="assets/images/shop/Black%20Red_curren-mens-casual-sport-quartz-watch-m_variants-1.jpg" alt="Image">
-                        <p class="product-details-desc"><b>Black & Red</b></p>
+                    <div class="col-3 text-center">
+                        <img src="assets/images/shop/Watch_01.jpg" class="mb-2" alt="Image">
+                        <input type="radio" name="color" value="White" checked="checked"><label class="product-details-desc mx-2">White</label>
                     </div>
-                    <div class="col-2 text-center">
-                        <img src="assets/images/shop/IMG_5355.JPG" alt="Image">
-                        <p class="product-details-desc"><b>Brown & White</b></p>
+                    <div class="col-3 text-center">
+                        <img src="assets/images/shop/Watch_04.jpg" class="mb-2" alt="Image">
+                        <input type="radio" name="color" value="Black/Red" checked="checked"><label class="product-details-desc mx-2">Black & Red</label>
                     </div>
-                    <div class="col-2 text-center">
-                        <img src="assets/images/shop/Watch_10_02.jpg" alt="Image">
-                        <p class="product-details-desc"><b>Brown</b></p>
+                    <div class="col-3 text-center">
+                        <img src="assets/images/shop/brownblackwhite_curren-top-brand-luxury-mens-watches-mal_variants-7.jpg" class="mb-2" alt="Image">
+                        <input type="radio" name="color" value="Brown/White"><label class="product-details-desc mx-2">Brown & White</label>
+                    </div>
+                    <div class="col-3 text-center">
+                        <img src="assets/images/shop/Watch_07.jpg" class="mb-2" alt="Image">
+                        <input type="radio" name="color" value="Brown"><label class="product-details-desc mx-2">Brown</label>
                     </div>
                 </div>
                 <div class="product-details-pro-qty">
                     <h4>QTY :</h4>
                     <div class="pro-qty">
-                        <input type="text" title="Quantity" value="01">
+                        <input type="text" title="Quantity"  id="inputQuantity" value="1">
                     </div>
                 </div>
                 <div class="product-details-price">Ksh 1650.00 <span class="price-old">Ksh 2000.00</span></div>
                 <div class="product-details-action">
-                    <a href="confirm-details.html" class="product-action-btn" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">Buy Now</a>
+                    <button class="product-action-btn" onclick="checkout()">Buy Now</button>
                 </div>
             </div>
         </section>
@@ -148,81 +152,6 @@
 
     <!--== Scroll Top Button ==-->
     <div class="scroll-to-top"><span class="fa fa-angle-double-up"></span></div>
-
-    <!--== Start Product Quick Wishlist Modal ==-->
-    <aside class="product-action-modal modal fade" id="action-WishlistModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="product-action-view-content">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <div class="modal-action-messages">
-                            <i class="fa fa-check-square-o"></i> Added to wishlist successfully!
-                        </div>
-                        <div class="modal-action-product">
-                            <div class="thumb">
-                                <img src="assets/images/shop/modal1.jpg" alt="Organic Food Juice" width="466" height="320">
-                            </div>
-                            <h4 class="product-name"><a href="single-product.html">CRAS NEQUE METUS</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
-    <!--== End Product Quick Wishlist Modal ==-->
-
-    <!--== Start Product Quick Add Cart Modal ==-->
-    <aside class="product-action-modal modal fade" id="action-CartAddModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="product-action-view-content">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <div class="modal-action-messages">
-                            <i class="fa fa-check-square-o"></i> Added to cart successfully!
-                        </div>
-                        <div class="modal-action-product">
-                            <div class="thumb">
-                                <img src="assets/images/shop/modal1.jpg" alt="Organic Food Juice" width="466" height="320">
-                            </div>
-                            <h4 class="product-name"><a href="single-product.html">CRAS NEQUE METUS</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
-    <!--== End Product Quick Add Cart Modal ==-->
-
-    <!--== Start Product Quick Add Cart Modal ==-->
-    <aside class="product-action-modal modal fade" id="action-CompareModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="product-action-view-content">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <div class="modal-action-messages">
-                            <i class="fa fa-check-square-o"></i> Added to compare successfully!
-                        </div>
-                        <div class="modal-action-product">
-                            <div class="thumb">
-                                <img src="assets/images/shop/modal1.jpg" alt="Organic Food Juice" width="466" height="320">
-                            </div>
-                            <h4 class="product-name"><a href="single-product.html">CRAS NEQUE METUS</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
-    <!--== End Product Quick Add Cart Modal ==-->
 
     <!--== Start Sidebar Cart Menu ==-->
     <aside class="sidebar-cart-modal offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithCartSidebar">
@@ -395,6 +324,7 @@
 
 <!-- Custom Main JS -->
 <script src="assets/js/main.js"></script>
+<script src="assets/js/checkout.js"></script>
 
 </body>
 
