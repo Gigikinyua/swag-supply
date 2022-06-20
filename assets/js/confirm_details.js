@@ -56,7 +56,7 @@ function placeOrder() {
 
         $.ajax({
             type: 'POST',
-            url: "place_order",
+            url: "datascript?request=place_orders",
             data: {
                 name: "Top Luxury European and American Watch",
                 color: color,
